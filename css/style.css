@@ -3,3 +3,101 @@
 /*Some selectors you may need include are
 a.skip, header, .nav_links, .container,
 .intro, html, .text-block, etc.*/
+
+.skip {
+    position: absolute;
+    top: -40px;
+}
+
+.skip:focus {
+    position: absolute;
+    top: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    padding-bottom: 5px;
+}
+
+.nav_links *:hover, .nav_links *:focus {
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    color: #50C7C7;
+}
+
+
+#logo {
+    animation: grow 1s;
+}
+
+@keyframes grow {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 50px;
+    }
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: repeat(5, auto);
+    row-gap: 15px;
+}
+
+.intro {
+    background-image: url("../images/header.jpg");
+    background-repeat: no-repeat;
+    height: 400px;
+    color: white;
+    grid-row: 1;
+    grid-column: 1/4;
+}
+
+.intro p {
+    padding: 100px 0;
+}
+
+.about-image, .method-image, .clients-image, .contact-image {
+    grid-column: 1/4;
+    max-height: 700px;
+    overflow: hidden;
+}
+
+.about, .about-image {
+    grid-row: 2
+}
+
+.method, .method-image {
+    grid-row: 3
+}
+
+.clients, .clients-image {
+    grid-row: 4;
+}
+
+.contact, .contact-image {
+    grid-row: 5;
+}
+
+.text-block {
+    align-self: center;
+}
+
+.about, .method, .clients, .contact {
+    grid-column: 2;
+}
+
+footer a{
+    color: white;
+}
