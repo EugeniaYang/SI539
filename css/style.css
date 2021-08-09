@@ -4,12 +4,12 @@
 a.skip, header, .nav_links, .container,
 .intro, html, .text-block, etc.*/
 
-.skip {
+a.skip {
     position: absolute;
     top: -40px;
 }
 
-.skip:focus {
+a.skip:focus {
     position: absolute;
     top: 0;
 }
@@ -20,10 +20,12 @@ header {
     align-items: center;
 }
 
-.nav-links {
-    display: flex;
-    text-align: center;
+.nav_links {
     flex-direction: column;
+    text-align: center;
+}
+
+.nav-links li {
     padding-bottom: 5px;
 }
 
@@ -56,16 +58,18 @@ header {
 }
 
 .intro {
-    background-image: url("../images/header.jpg");
-    background-repeat: no-repeat;
-    height: 400px;
+    background: #737373 url("../images/header.jpg") no-repeat fixed;
+    background-size: cover;
     color: white;
     grid-row: 1;
-    grid-column: 1/4;
+    grid-column: 1/ span 3;
+    align-self: center;
+    height: 400px;
 }
 
 .intro p {
-    padding: 100px 0;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 .about-image, .method-image, .clients-image, .contact-image {
@@ -91,13 +95,152 @@ header {
 }
 
 .text-block {
+    vertical-align: center;
     align-self: center;
 }
 
-.about, .method, .clients, .contact {
+.intro.p, .about, .method, .clients, .contact {
     grid-column: 2;
 }
 
-footer a{
+footer a {
     color: white;
+}
+
+a, p, h1, h2, li {
+    font-family: 'Times New Roman', serif;
+}
+
+title {
+    font-weight: bold;
+}
+
+@media all and (min-width: 750px) {
+    .nav_links li {
+        padding: 10px;
+        display: inline;
+    }
+
+    .container {
+        grid-template-columns: 50px auto 500px auto 50px;
+        grid-template-rows: 400px 400px 400px 400px 400px;
+    }
+
+    .about, .method-image, .clients, .contact-image {
+        grid-column: 3/ span 2;
+    }
+
+    .method, .about-image, .clients-image, .contact {
+        grid-column: 2/ span 2;
+    }
+
+    .intro {
+        grid-column: 1/ span 5;
+    }
+}
+
+@media all and (min-width: 1125px) {
+    #logo {
+        animation: wide_grow 1s;
+    }
+
+    @keyframes wide_grow {
+        0% {
+            width: 50px;
+            left: 0
+        }
+        50% {
+            width: 150px;
+            left: 450px
+        }
+        100% {
+            width: 50px;
+            left: 0
+        }
+    }
+
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .container {
+        grid-template-columns: 15px 75px 1fr 25px 1fr 75px 15px;
+        grid-template-rows: 400px 400px 400px;
+    }
+
+    .intro {
+        grid-column: 1/ span 7;
+    }
+
+    .about-image {
+        grid-column: 2 / 7;
+        grid-row: 2
+    }
+
+    .clients-image {
+        grid-column: 2 / 7;
+        grid-row: 3
+    }
+
+    .method-image, .contact-image {
+        display: none;
+    }
+
+    .about {
+        grid-column: 3;
+        grid-row: 2;
+    }
+
+    .method {
+        grid-column: 5;
+        grid-row: 2;
+    }
+
+    .clients {
+        grid-column: 3;
+        grid-row: 3;
+    }
+
+    .contact {
+        grid-column: 5;
+        grid-row: 3;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none;
+    }
+
+    a.skip {
+        transition: none;
+    }
+
+    .intro {
+        background: local;
+    }
+}
+
+@media print {
+
+    .nav_links li {
+        padding: 40px;
+        display: inline;
+    }
+
+    div img {
+        display: none;
+    }
+
+    .intro {
+        height: auto;
+        background-image: none;
+        min-height: 0;
+    }
+
+    .about, .method, .clients, .contact, .about-image, .method-image, .clients-image, .contact-image {
+        height: auto;
+        min-height: 0;
+    }
 }
