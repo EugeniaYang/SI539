@@ -1,3 +1,4 @@
+# SI539 Course Waiver (CSS Part)
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/EugeniaYang/SI539/edit/develop/README.md) to maintain and preview the content for your website in Markdown files.
